@@ -86,7 +86,6 @@ public class Term implements Comparable
     }
 
 
-
     public int getExponent() {
         return mExponent;
     }

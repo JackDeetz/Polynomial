@@ -10,8 +10,14 @@ public class Polynomial
     }
     public Polynomial(Polynomial originalToCopy)
     {
-        mList = new LinkedList<Term>() ;
-        mList.addAll(originalToCopy.mList) ;
+        mList = new LinkedList<Term>();
+        for(int i = 0; i < originalToCopy.mList.size(); i++){
+            Term termToCopy = new Term();
+            termToCopy.setExponent(originalToCopy.mList.get(i).getExponent());
+            termToCopy.setCoefficient(originalToCopy.mList.get(i).getCoefficient());
+            mList.add(termToCopy);
+
+        }
     }
     public int getNumTerms()
     {
@@ -53,7 +59,7 @@ public class Polynomial
     {
         for(Term term : otherToAddFrom.mList)
         {
-            this.addTerm(term) ;
+            this.addTerm(new Term(term)) ;
         }
         return true ;
     }
